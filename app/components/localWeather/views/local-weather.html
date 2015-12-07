@@ -1,0 +1,13 @@
+<div class="top-bar">Color of Nature</div>
+   <div class="total-container">
+    
+    <h2 class="field-title">Type Your City Name</h2>
+    <input type="text" id="city" name="cityName" placeholder="Type Your City Name" ng-model="cityName" class="input-field" show-local-weather>
+    <button class="submit-btn" ng-click="getWeather()">Show Weather</button>
+    
+    <div class="data-container">
+        
+        <h2 class="location">{{nearestArea.areaName[0].value}}</h2>
+        <img ng-src="{{ currentWeather['weatherIconUrl'][0].value }}">
+    </div>
+</div>
