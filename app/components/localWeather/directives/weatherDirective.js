@@ -9,7 +9,7 @@ angular.module('weatherDirectivesModule',[])
             ele.on('keypress',function(e){
                 var code=e.keyCode || e.which;
                 if(code===13){
-                    
+                    scope.getLocalTime();
                     scope.getWeather();
                     
                 }

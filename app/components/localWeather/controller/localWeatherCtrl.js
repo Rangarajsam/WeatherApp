@@ -1,14 +1,15 @@
 angular.module('localWeatherModule', [])
-.controller('LocalWeatherCtrl', ['$scope','$http','weatherService', function($scope,$http,weatherService){
+.controller('LocalWeatherCtrl', ['$scope','$http','weatherService','commonOperations', function($scope,$http,weatherService,commonOperations){
     
     $scope.appName='Local Weather App';
     $scope.cityName='';
-    var baseUrl=weatherService.getBaseUrl();
+        
+        
     
     $scope.getWeather=function(){
-        var combinedUrl=baseUrl+weatherService.locationQuery+$scope.cityName+weatherService.apiKey+weatherService.dataFormat+weatherService.noOfDays+weatherService.isIncludeLocation;
-        console.log(combinedUrl+' '+$scope.cityName);
-        $http.get(combinedUrl).then(function(response){
+        var combinedWeatherQuery=weatherService.apiWeatherBaseUrl+weatherService.locationQuery+$scope.cityName+weatherService.apiKey+weatherService.dataFormat+weatherService.noOfDays+weatherService.isIncludeLocation;
+        console.log(combinedWeatherQuery+' '+$scope.cityName);
+        $http.get(combinedWeatherQuery).then(function(response){
             
             var responseData=response.data;
             $scope.currentWeather=responseData.data.current_condition[0];
@@ -18,5 +19,20 @@ angular.module('localWeatherModule', [])
             console.log(response);
         });
         
-    }
+    };
+     $scope.getLocalTime=function(){
+         var combinedTimeZoneQuery=weatherService.apiTimeZoneBaseUrl+weatherService.locationQuery+$scope.cityName+weatherService.apiKey+weatherService.dataFormat;
+        console.log(combinedTimeZoneQuery+' '+$scope.cityName);
+        $http.get(combinedTimeZoneQuery).then(function(response){
+            var responseData=response.data;
+            var localDateTime=responseData.data.time_zone[0].localtime;
+            $scope.localDate=commonOperations.seperateDateTime(localDateTime);
+            $scope.localTime=commonOperations.seperateDateTime(localDateTime);
+            
+            console.log($scope.localTime);
+        },function(){
+            console.log(response);
+        });
+        
+    };
 }]);

@@ -30,6 +30,8 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+    background: linear-gradient(to bottom, #1e528e 0%,#265889 50%,#9da671 100%);
+    font-family: arial;
 }
 ol, ul {
 	list-style: none;
@@ -49,58 +51,126 @@ table {
 .clearfix {
     clear: both;
 }
-body {
-    background: url(./components/localWeather/views/images/app-bg.jpg) no-repeat center center;
+.tt-contents-container {
+    width: 90%;
+    margin: 0 auto;
 }
-.total-container {
-    width: 500px;
-    margin: 100px auto 0;
-    background: rgba(255,255,255,0.8);
-    border-radius: 20px;
-    min-height: 400px;
-}
-.logo {
+.logo-holder {
     font: normal 16px/30px arial;
-    text-align: center;
+    text-align: left;
     padding-top: 10px;
-    color: #000;
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
-.field-title {
-   font: normal 14px/20px arial;
-   color: #000; 
-    margin-left: 20%;
-    margin-top: 20px;
+.top-navi {
+        list-style-type: none;
+    float: right;
+    margin-top: 15px;
 }
-.input-field {
+.header-area {
+    background: none;
+}
+.top-navi li {
+    display: block;
+    float: left;
+    padding: 0 10px;
+    
+    text-align: center;
+}
+.top-navi li.active{
+    background: #000;
+}
+.top-navi li a{
+    font: normal 12px/22px arial;
+    color: #fff;
+}
+.inner-contents-container {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+.banner-holder {
+    margin: 15px 0;
+    position: relative;
+}
+.banner-holder img {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+.banner-transparent-area {
+        top: 0px;
+    left: 15px;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    padding: 15px;
+    position: absolute;
+    width: 30%;
+}
+
+.top-field-title {
+   font: normal 18px/30px arial;
+   color: #fff; 
+    text-transform: uppercase;
+    text-align: left;
+}
+.top-input-field {
     border: 1px solid #aaa;
-    border-radius: 5px;
-    width: 60%;
+    border-radius: 0px;
+    width: 70%;
     display: block;
     margin: 5px auto 0;
     background: #fff;
     height: 40px;
     padding:  0 0 0 5px;
+    float: left;
+    color: #000;
 }
 .submit-btn {
-    width:200px;
-    border-radius: 5px;
+    width:25%;
     background: #118899;
     color: #fff;
     text-align: center;
-    font:normal 12px/30px arial; 
-    height: 30px;
+    font:normal 16px/40px arial; 
+    height: 40px;
     border: 0px;
-    margin: 10px auto 0;
+    margin: 5px 0 0 5%;
     display: block;
    cursor: pointer;
+    float: left;
 }
-.data-container {
-    margin: 20px auto 0;
-    width: 90%;
+.temp-data-container {
+    margin: 15px auto 0;
+    width: 100%;
     
 }
-.location {
-    font: normal 14px/25px arial;
+.temperature-holder {
+    font: normal 120px/120px arial;
     text-align: center;
-    color: #cc0000;
+    color: #fff;
+    width: 80%;
+    margin: 0 auto;
+}
+.date-holder {
+    font: normal 18px/25px arial;
+    text-align: center;
+    color: #fff;
+    width: 80%;
+    margin: 0 auto;
+}
+.time-holder {
+    font: normal 16px/25px arial;
+    text-align: center;
+    color: #fff;
+    width: 80%;
+    margin: 0 auto;
+}
+.temp-name-holder {
+    font: normal 16px/25px arial;
+    text-align: center;
+    color: #fff;
+    width: 80%;
+        margin: 0 auto;
+    margin-top: 10px;
 }
