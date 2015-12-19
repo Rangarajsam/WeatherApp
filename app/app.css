@@ -174,3 +174,21 @@ table {
         margin: 0 auto;
     margin-top: 10px;
 }
+.error-msg{
+    width: 100%;
+    padding: 5px;
+    font: normal 12px/20px arial;
+    color: #cc0000;
+    position: relative;
+    background:#fff;
+    margin: 20px 0 0 0 ;
+}
+.err-msg-close {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    cursor: pointer;
+    background: url(../app/components/localWeather/views/images/error-close-icon.png) no-repeat left top;
+}

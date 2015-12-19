@@ -5,12 +5,17 @@
     <input type="text" id="city" name="cityName" placeholder="Type Your City Name" ng-model="cityName" class="top-input-field" show-local-weather>
     <button class="submit-btn" ng-click="getLocalTime();getWeather()">Go</button>
     <div class="clearfix"></div> 
-    <div class="temp-data-container">
+    <div class="temp-data-container" ng-show="showDetails">
         <div class="date-holder">{{localDate | date:'EEEE, MMM d, yyyy'}}</div>
         <div class="time-holder">{{localTime | date:'shortTime'}}</div>
         <div class="temperature-holder">{{currentWeather.temp_C}}<span ng-if="currentWeather.temp_C">°C</span></div>
         <div class="temp-name-holder">{{currentWeather.weatherDesc[0].value}}</div>
     </div>
+    <div class="error-msg" ng-show="showErrorMsg">
+          {{ errorMsg }}
+          <div class="err-msg-close" ng-click="closeErrorMsg()"></div>
+    </div>
+    
      </div>
       
   </div>

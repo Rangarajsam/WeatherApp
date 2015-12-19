@@ -10,5 +10,42 @@ angular.module('weatherServiceModule', [])
     this.dataFormat='&format=json';
     this.noOfDays='&no_of_days=3';
     this.isIncludeLocation='&includeLocation=yes';
-    
+    this.geoError='';
+   /* this.latLongValue = {
+        
+    };*/
+    this.initiateLatLang=function(){
+        navigator.geolocation.getCurrentPosition(latlong,error);
+    };
+    /*this.getLatLang=function(position){
+        this.latLongValue={
+                name:'Rangaraj',
+                latitude:position.coords.latitude,
+                longitude:position.coords.longitude
+        
+        };
+        console.log(this.latLongValue);
+        return this.latLongValue;
+    };*/
+   /* this.errorType=function(error){
+        switch(error.code)
+            {
+                case error.PERMISSION_DENIED: 
+                this.geoError='user did not share geolocation data';
+                break;
+ 
+                case error.POSITION_UNAVAILABLE: 
+                this.geoError='could not detect current position';
+                break;
+ 
+                case error.TIMEOUT: 
+                this.geoError='retrieving position timed out';  
+                break;
+ 
+                default: 
+                this.geoError='unknown error';
+                break;
+            }
+        return this.geoError;
+    };*/
 }]);
