@@ -8,7 +8,7 @@ angular.module('weatherServiceModule', [])
     this.locationQuery='q=';
     this.apiKey='&key='+API_KEY;
     this.dataFormat='&format=json';
-    this.noOfDays='&no_of_days=3';
+    this.noOfDays='&no_of_days=2';
     this.isIncludeLocation='&includeLocation=yes';
     this.geoError='';
    /* this.latLongValue = {

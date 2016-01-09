@@ -38,6 +38,7 @@ angular.module('localWeatherModule', [])
             }
         return $scope.geoError;
     };
+    $scope.showLoader=true;
     $scope.getCurrentCityWeather=function(){
        navigator.geolocation.getCurrentPosition($scope.getLatLang,$scope.errorType);
         $timeout(function(){
@@ -45,7 +46,7 @@ angular.module('localWeatherModule', [])
             $scope.cityName=$scope.latLongValue.latitude+','+$scope.latLongValue.longitude;
             $scope.getWeather();
             $scope.getLocalTime();
-            
+            $scope.showLoader=false;
         },1000);
         
     };
@@ -60,11 +61,12 @@ angular.module('localWeatherModule', [])
                     var responseData=response.data;
                     var isError=responseData.data.hasOwnProperty('error');
                     if(!isError){
-                        $scope.showErrorMsg=false;
-                        $scope.showDetails=true;
+                        $scope.totalWeather=responseData.data.weather;
                         $scope.currentWeather=responseData.data.current_condition[0];
                         $scope.nearestArea=responseData.data.nearest_area[0];
                         console.log($scope.currentWeather);
+                        $scope.showErrorMsg=false;
+                        $scope.showDetails=true;
                     }
                     else{
                         $scope.showErrorMsg=true;
@@ -95,13 +97,12 @@ angular.module('localWeatherModule', [])
                     var responseData=response.data;
                     var isError=responseData.data.hasOwnProperty('error');
                     if(!isError){
-                        $scope.showErrorMsg=false;
-                        $scope.showDetails=true;
                         var localDateTime=responseData.data.time_zone[0].localtime;
                         $scope.localDate=commonOperations.seperateDateTime(localDateTime);
                         $scope.localTime=commonOperations.seperateDateTime(localDateTime);
-
                         console.log($scope.localTime);
+                        $scope.showErrorMsg=false;
+                        $scope.showDetails=true;
                     }
                     else{
                         $scope.showErrorMsg=true;

@@ -1,6 +1,7 @@
 <div class="banner-holder large-12 columns">
       <img src="components/localWeather/views/images/winter.jpg">
       <div class="banner-transparent-area">
+      <loader show="showLoader"></loader>
        <h2 class="top-field-title">Type Your City Name</h2>
     <input type="text" id="city" name="cityName" placeholder="Type Your City Name" ng-model="cityName" class="top-input-field" show-local-weather>
     <button class="submit-btn" ng-click="getLocalTime();getWeather()">Go</button>
@@ -17,6 +18,17 @@
     </div>
     
      </div>
+      
+  </div>
+  <div class="clearfix"></div> 
+  
+     <div class="forecast-heading">Weather Forecast</div>
+  <div class="btm-weather-box large-12 columns">
+      <div class="weather-box" ng-repeat="weather in totalWeather" ng-if="$index > 0">
+          <p class="weather-box-date">{{weather.date | date:'EEEE, MMM d, yyyy'}}</p>
+          <h1 class="weather-box-temp">{{weather.hourly[0].tempC +'°C'}}</h1>
+          <p class="weather-box-date">{{weather.hourly[0].weatherDesc[0].value}}</p>
+      </div>
       
   </div>
   <div class="clearfix"></div> 

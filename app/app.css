@@ -88,11 +88,12 @@ table {
 .inner-contents-container {
     width: 100%;
     height: 100%;
-    background: #fff;
 }
 .banner-holder {
     margin: 15px 0;
     position: relative;
+    background: #fff;
+    padding: 15px;
 }
 .banner-holder img {
     max-width: 100%;
@@ -100,13 +101,27 @@ table {
     display: block;
 }
 .banner-transparent-area {
-        top: 0px;
+         top: 15px;
     left: 15px;
-    height: 100%;
+    height: calc(100% - 30px);
     background: rgba(0,0,0,0.7);
     padding: 15px;
     position: absolute;
     width: 30%;
+}
+.loader-container {
+    width: 100%;
+    height: calc(100% - 100px);
+    left: 0;
+    top: 100px;
+    position: absolute;
+    box-sizing: border-box;
+    padding-top: 100px;
+    text-align: center;
+    padding-top: 40px;
+}
+.loader-container img {
+    display: inline;
 }
 
 .top-field-title {
@@ -191,4 +206,47 @@ table {
     right: -12px;
     cursor: pointer;
     background: url(../app/components/localWeather/views/images/error-close-icon.png) no-repeat left top;
+}
+.btm-weather-box {
+    margin-top: 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.weather-box {
+    height: 150px;
+    background: #fff;
+    padding: 10px;
+    margin-right: 10px;
+    width: 25%;
+    position: relative;
+}
+.weather-box:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 5px;
+    background: #118899;
+}
+.weather-box:last-child{
+    margin-right: 0px;
+}
+.forecast-heading {
+    font: normal 18px/22px arial;
+    margin-top: 10px;
+    text-transform: uppercase;
+    color: #fff;
+}
+.weather-box-date {
+    font: bold 14px/22px arial;
+    color: #3e3e3e;
+    text-align: center;
+}
+.weather-box-temp {
+    font: normal 65px/90px arial;
+    color: #000;
+    text-align: center;
 }
