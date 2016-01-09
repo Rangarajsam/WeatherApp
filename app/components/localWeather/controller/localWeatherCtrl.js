@@ -41,10 +41,10 @@ angular.module('localWeatherModule', [])
     $scope.getCurrentCityWeather=function(){
        navigator.geolocation.getCurrentPosition($scope.getLatLang,$scope.errorType);
         $timeout(function(){
-        console.log($scope.latLongValue);
-        $scope.cityName=$scope.latLongValue.latitude+','+$scope.latLongValue.longitude;
-        $scope.getWeather();
-        $scope.getLocalTime();
+            console.log($scope.latLongValue);
+            $scope.cityName=$scope.latLongValue.latitude+','+$scope.latLongValue.longitude;
+            $scope.getWeather();
+            $scope.getLocalTime();
             
         },1000);
         
